@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/message/message",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "保定瀚邦教育",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#539dde",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "/static/images/tabbar/home_s.png",
+        "iconPath": "/static/images/tabbar/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "/static/images/tabbar/message_s.png",
+        "iconPath": "/static/images/tabbar/message.png",
+        "pagePath": "pages/message/message",
+        "text": "资讯"
+      },
+      {
+        "selectedIconPath": "/static/images/tabbar/user_s.png",
+        "iconPath": "/static/images/tabbar/user.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  }
+}

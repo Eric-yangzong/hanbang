@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "最新资讯",
+  "usingComponents": {
+    "i-card": "../../dist/card/index"
+  }
+}

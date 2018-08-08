@@ -1,0 +1,9 @@
+<i-card title="显示标题" extra="额外内容12123123123123" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="content">内容不错asdfasdfasdfasdfasdfasdfasdfasdfasdf</view>
+    <view slot="footer">尾部内asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf容</view>
+</i-card>
+
+<i-card title="显示标题" extra="额外内容额外内" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="content">内容不错内容不错内容不错内容不错内容不错内容不错</view>
+    <view slot="footer">尾部内尾部内尾部内尾部内尾部内尾部内尾部内尾部内尾部内</view>
+</i-card>

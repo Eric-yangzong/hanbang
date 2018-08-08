@@ -1,0 +1,16 @@
+{
+  "name": "hanbang",
+  "version": "1.0.0",
+  "description": "- 微信小程序：实现一个移动端图书馆，项目持续更新中...",
+  "main": "app.js",
+  "dependencies": {
+    "wafer2-client-sdk": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
