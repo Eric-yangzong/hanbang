@@ -1,7 +1,17 @@
 /**app.wxss**/
 .container {
-  display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
 } 
+
+.down-line-w {
+  margin-top: 2px;
+  padding: 12px 15px;
+  background: #fff;
+  line-height: 1.4;
+  overflow: hidden;
+  font-size: 11px;
+  color: gray;
+  text-align: center;
+}

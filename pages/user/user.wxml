@@ -1,108 +1,29 @@
-<i-panel class="cell-panel-demo">
-  <i-cell title="单行列表"></i-cell>
-</i-panel>
-
-<i-panel class="cell-panel-demo">
-  <i-cell title="单行列表" is-link value="详细信息"></i-cell>
-</i-panel>
-
-<i-panel class="cell-panel-demo">
-  <i-cell title="单行列表" label="附加描述" value="详细信息"></i-cell>
-</i-panel>
-
-<i-panel class="cell-panel-demo" title="带 icon 的 Cell">
-  <i-cell title="单行列表" value="详细信息">
-    <i-icon type="like_fill" slot="icon" />
-  </i-cell>
-</i-panel>
-
-<i-panel class="cell-panel-demo" title="带箭头的 cell">
-  <i-cell title="只显示箭头" is-link></i-cell>
-</i-panel>
-
-<i-panel class="cell-panel-demo">
-  <i-cell title="跳转到首页" is-link url="/pages/index/index"></i-cell>
-</i-panel>
-
-<i-panel class="cell-panel-demo" title="cell 组">
-  <i-cell-group>
-    <i-cell title="只显示箭头" is-link></i-cell>
-    <i-cell title="跳转到首页" is-link url="/pages/index/index"></i-cell>
-    <i-cell title="只有 footer 点击有效" is-link url="/pages/index/index" only-tap-footer></i-cell>
-    <block wx:if="{{ switch1 }}">
-      <i-cell title="单行列表" label="附加描述" value="详细信息"></i-cell>
-      <i-cell title="表单">
-        <input slot="footer" type="digit" placeholder="带小数点的数字键盘" />
-      </i-cell>
-    </block>
-    <i-cell title="开关">
-      <i-switch value="{{ switch1 }}" bind:change="onChange" slot="footer">
-        <i-icon type="right" slot="open"></i-icon>
-        <i-icon type="close" slot="close"></i-icon>
-      </i-switch>
-    </i-cell>
-  </i-cell-group>
-</i-panel>
-
-<i-panel class="cell-panel-demo">
-  <i-cell title="单行列表" label="附加描述" value="详细信息"></i-cell>
-</i-panel>
-
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="container">
+  <view class="userimage"></view>
   <!-- 用户登录测试 -->
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}" background-size="cover"></image>
     <view>
-      <button class="userinfo-nickname" style="{{logged?'display:none;':''}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="login">{{logged ? userInfo.nickName : '点击登录'}}</button>
+      <button class="userinfo-nickname" style="{{logged?'display:none;':''}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="login">
+        {{logged ? userInfo.nickName : '点击登录'}}
+      </button>
       <text class="userinfo-nickname" catchtap="choose">{{userInfo.nickName}}</text>
     </view>
   </view>
-
-  <!-- 查看班级读书 -->
-  <view class="uploader" style="{{display?'':'display:none;'}}">
-    <navigator url="../addCgi/addCgi" open-type="navigate" class="uploader-text">
-      <text>查看班级读书情况</text>
-    </navigator>
+  <i-panel class="cell-panel-demo" bindtap="info">
+    <i-cell title="个人资料" is-link >
+      <i-icon type="addressbook" size="{{iconSize}}" slot="icon" />
+    </i-cell>
+  </i-panel>
+  <i-panel class="cell-panel-demo">
+    <i-cell title="意见反馈" is-link url="/pages/index/index">
+      <i-icon type="activity" size="{{iconSize}}" slot="icon" />
+    </i-cell>
+  </i-panel>
+  <i-panel class="cell-panel-demo">
+    <i-cell title="推广邀请" is-link url="/pages/index/index">
+      <i-icon type="interactive" size="{{iconSize}}" slot="icon" />
+    </i-cell>
+  </i-panel>
   </view>
-
-  <view class="form-box" style="{{display?'':'display:none;'}}">
-
-    <view class="form-item">
-      <input class="username" value="{{username}}" bindinput="bindUsernameInput" placeholder="您家宝儿的名子" auto-focus/>
-      <image wx:if="{{ username.length > 0 }}" id="clear-username" class="clear" src="/static/images/clear_input.png" catchtap="clearInput"></image>
-    </view>
-
-    <button type="default" class="login-btn" bindtap="sure">确认</button>
-
-  </view>
-
-  <view class="form-box" style="{{!display&&logged?'':'display:none;'}}">
-
-    <view class="form-item">
-      <input class="bookname" value="{{bookname}}" bindinput="bindBooknameInput" placeholder="宝儿读书名" auto-focus/>
-      <image wx:if="{{ bookname.length > 0 }}" id="clear-bookname" class="clear" src="/static/images/clear_input.png" catchtap="clearInput"></image>
-    </view>
-
-    <view class="form-item">
-      <input type="number" maxlength="4" class="readsecond" value="{{readsecond}}" bindinput="bindReadsecondInput" placeholder="宝儿读书时长(单位：分钟)" auto-focus/>
-      <image wx:if="{{ readsecond.length > 0 }}" id="clear-readsecond" class="clear" src="/static/images/clear_input.png" catchtap="clearInput"></image>
-    </view>
-
-    <view class="form-item">
-      <label class="date">
-        {{today}}
-      </label>
-    </view>
-
-    <button type="default" class="login-btn" bindtap="sureRead">确认</button>
-
-  </view>
-  <view class="form-box" style="{{!display&&logged?'':'display:none;'}}">
-    <view wx:for="{{ rows }}" wx:key="rows" class="form-item">
-      <label type="bookname" class="readsecond">{{item.create_date}}/{{item.read_second}}(分) ：{{item.book_name}}</label>
-    </view>
-  </view>
-</view>
-
-<view class="down-line-w">----- 这是底线了 -----</view>

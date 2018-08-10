@@ -1,16 +1,5 @@
 .cell-panel-demo {
-  display: block;
-  margin-top: 15px;
-}
-
-.down-line-w {
-  padding: 12px 15px;
-  background: #fff;
-  line-height: 1.4;
-  overflow: hidden;
-  font-size: 11px;
-  color: gray;
-  text-align: center;
+  margin-top: 3px;
 }
 
 
@@ -23,12 +12,28 @@ page {
   justify-content: flex-start;
 }
 
-.userinfo, .uploader, .tunnel {
-  margin-top: 40rpx;
+.userinfo,.uploader, .tunnel {
   height: 140rpx;
   width: 100%;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: none;
+  border-right: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 300ms ease;
+}
+
+.userimage {
+  height: 140px;
+  width: 100%;
+  background: #fff;
+  background-image: url(https://bdhanbang.top/images/user_down.jpg);
+  background-repeat:no-repeat; 
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
+  border: 0px solid rgba(0, 0, 0, 0.1);
   border-left: none;
   border-right: none;
   display: flex;
