@@ -5,7 +5,6 @@ var util = require('../../utils/util.js')
 
 Page({
   data: {
-    userInfo: {},
     logged: false,
     display: false,
     takeSession: false,
@@ -42,6 +41,21 @@ Page({
     }],
     current: '男',
     position: 'left'
+  },
+  onLoad() {
+    let session = qcloud.getSession();
+    let userInfo = session.userInfo;
+    this.setData({
+      userInfo,
+      username: userInfo.nickName
+    });
+
+  },
+  onChange(event) {
+    const detail = event.detail;
+    this.setData({
+      'switch1': detail.value
+    })
   },
   // 用户登录示例
   login: function () {
@@ -120,13 +134,10 @@ Page({
     // 确认按钮
     var that = this;
 
-    if(!that.data.userInfo.nickName){
-      let session = qcloud.getSession();
-      that.data.userInfo = session.userInfo;
+    if (!that.data.userInfo) {
+      util.showModel('请求先进行登录', error);
+      return false;
     }
-
-
-
 
     if (that.data.userInfo) {
       that.data.userInfo.nickName = that.data.username;//用户名
@@ -153,12 +164,28 @@ Page({
         let session = qcloud.getSession();
         session.userInfo.nickName = that.data.userInfo.nickName;
         qcloud.setSession(session);
-
+        util.showSuccess('保存成功');
 
       },
       fail(error) {
         util.showModel('请求失败', error);
       }
     })
+  },
+  choose: function () {
+    //切换显示功能
+    var that = this;
+    that.setData({
+      display: !that.data.display
+    });
+  },
+  sureRead: function () {
+    // 确认按钮
+  },//事件处理函数
+  change: function (e) {
+    console.log(e);
+  },
+  bindReplaceInput: function (e) {
+    console.log(e);
   }
 })
