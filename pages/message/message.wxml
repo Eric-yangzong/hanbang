@@ -16,4 +16,4 @@
         <view slot="footer">尾部内尾部内尾部内尾部内尾部内尾部内尾部内尾部内尾部内</view>
     </i-card>
 </view>
-<view class="down-line-w">----- 这是底线了 -----</view>
+<i-load-more tip="这是底线" loading="{{ false }}" />

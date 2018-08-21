@@ -1,8 +1,30 @@
 <!-- user-info.wxml -->
 <i-panel title="基本信息">
-    <i-input value="{{ value1 }}" title="收货人" autofocus placeholder="名字" />
-    <i-input value="{{ value2 }}" type="number" title="联系电话" placeholder="请输入手机号" />
-    <i-input value="{{ value3 }}" type="textarea" title="详细地址" placeholder="请输入详细地址(最多50字)" maxlength="50" />
+    <i-input title="姓名" maxlength="50" value="{{username}}" bind:change="bindUsernameInput" autofocus placeholder="姓名" />
+    <i-input title="联系电话" maxlength="13" bind:change="bindPhoneInput" placeholder="联系电话" />
+    <view class="i-cell i-input">
+        <view class="i-cell-hd i-input-title">性别</view>
+        <radio-group class="radio-group" bindchange="sexChange">
+            <label class="radio" wx:for="{{sexRadio}}">
+                <radio color="#4183c4"  value="{{item.id}}" checked="{{item.checked}}" />
+                {{item.name}}
+            </label>
+        </radio-group>
+    </view>
+    <i-input title="所在单位" type="textarea" value="{{company}}" bind:change="bindCompanyInput"  placeholder="所在单位" maxlength="100" />
+    <i-input title="身份证号" maxlength="18" value="{{card}}" bind:change="bindCardInput" placeholder="身份证号" />
+    <i-input title="所报学校" maxlength="100" value="{{school}}" bind:change="bindSchoolInput" placeholder="所报学校" />
+    <i-input title="所报专业" maxlength="100" value="{{professional}}" bind:change="bindProfessionalInput" placeholder="所报专业" />
+    <view class="i-cell i-input">
+        <view class="i-cell-hd i-input-title">形式</view>
+        <radio-group class="radio-group" bindchange="typeChange">
+            <label class="radio" wx:for="{{btype}}">
+                <radio color="#4183c4" value="{{item.id}}" checked="{{item.checked}}" />
+                {{item.name}}
+            </label>
+        </radio-group>
+    </view>
+    <i-input title="微信号" maxlength="100" value="{{weichat}}" bind:change="bindWeichatInput"  placeholder="微信号" />
+    <i-input title="备注" type="textarea" value="{{remark}}" bind:change="bindRemarkInput" placeholder="备注" maxlength="100" />
 </i-panel>
-
 <i-button bind:click="handleClick">保存</i-button>
