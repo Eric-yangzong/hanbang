@@ -141,6 +141,7 @@ Page({
 
     if (that.data.userInfo) {
       that.data.userInfo.nickName = that.data.username;//用户名
+      that.data.userInfo["phone"] = that.data.phone;//性别
       that.data.userInfo["sex"] = that.data.sex;//性别
       that.data.userInfo["company"] = that.data.company;//所在单位
       that.data.userInfo["card"] = that.data.card;//身份证号
@@ -150,6 +151,9 @@ Page({
       that.data.userInfo["weichat"] = that.data.weichat;//微信号
       that.data.userInfo["remark"] = that.data.remark;//备注 
     }
+
+    console.log(JSON.stringify(that.data.userInfo));
+
 
     qcloud.request({
       url: `${config.service.host}/weapp/userinfo`,

@@ -3,8 +3,8 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-//var host = 'http://localhost:8080';
-var host = 'https://bdhanbang.top/okapi';
+var host = 'http://192.168.0.118:8080';
+//var host = 'https://bdhanbang.top/okapi';
 
 var config = {
 
